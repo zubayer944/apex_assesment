@@ -39,7 +39,6 @@ class ApiHelperImpl extends GetConnect with ApiHelper {
   Future<Response> createCompany({required CompanyCreateRequestModel companyCreateRequestModel}) async {
     String url = "company";
     var response = await post(url, jsonEncode(companyCreateRequestModel.toJson()));
-    print('ApiHelperImpl.createCompany: ${response.body}');
     return response;
   }
 }

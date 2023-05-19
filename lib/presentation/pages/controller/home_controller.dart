@@ -26,11 +26,9 @@ class HomeController extends GetxController implements HomeInterface {
 
   void _fetchCompanyList() {
     _apiHelper.getCompaniesList().then((Companies value) {
-      print('HomeController._fetchCompanyList value: ${value.statusCode}');
       if (value.statusCode == "1") {
         companyList.value = value;
-        print(
-            'HomeController._fetchCompanyList: ${companyList.value.companyList?.data?.length}');
+
       } else {
         LogPrint.print("Something went wrong");
       }
@@ -78,7 +76,10 @@ class HomeController extends GetxController implements HomeInterface {
             );
           }
         } catch (e, s) {
-          print('HomeController.onCreateCompanyPressed --->$e');
+
+          LogPrint.print('HomeController.onCreateCompanyPressed --->$e');
+          LogPrint.print('HomeController.onCreateCompanyPressed --->$s');
+
         }
       });
     }
